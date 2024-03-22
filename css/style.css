@@ -1,0 +1,190 @@
+:root {
+    --main-bg-color: #202022;
+    --header-bg-color: #000;
+    --nav-bg-color: #333;
+    --logo-font-size: 40px;
+    --nav-link-font-size: 26px;
+    --nav-link-bg-size: 9.1%;
+    --nav-link-hover-color: rgb(40, 115, 255);
+    --nav-link-width: 145px;
+    --nav-link-height: 80px;
+}
+
+form {
+    text-align: center;
+    padding: 25%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: white;
+}
+
+.home_body, .snare_body, .toms_body, .bass_body, .cymbals_body, .quints_body {
+    background-size: var(--nav-link-bg-size);
+}
+
+.home_body { background-image: url("../images/DOL.png"); }
+.snare_body { background-image: url("../images/SNARE.png"); }
+.toms_body { background-image: url("../images/TOMS.png"); }
+.bass_body { background-image: url("../images/BASS.png"); }
+.cymbals_body { background-image: url("../images/CYMBALS.png"); }
+.quints_body { background-image: url("../images/Quints.png"); }
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-title, .logo {
+    color: white;
+    text-decoration: none;
+    transition: color 0.4s;
+}
+
+.header-title:hover, .logo:hover,
+.index-page .header-title, .header-title.active,
+.index-page .logo {
+    color: var(--nav-link-hover-color);
+}
+
+.logo {
+    font-size: var(--logo-font-size);
+    transition: 0.4s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--nav-bg-color);
+    padding: 1px 0;
+}
+
+.nav-items {
+    /* Reverting to original styles */
+    display: flex;
+    justify-content: space-around;
+    font-family: serif;
+}
+
+
+.nav-link {
+    /* Reverting to original styles */
+    font-size: var(--nav-link-font-size);
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    padding: 25px 0 5px;
+    background: url('../images/folder-icon-macos.png.webp') no-repeat 50%;
+    background-size: cover;
+    width: var(--nav-link-width);
+    height: var(--nav-link-height);
+    line-height: 70px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.4s, color 0.4s;
+}
+
+
+.nav-link:hover, .nav-link.active {
+    background-color: transparent;
+    color: var(--nav-link-hover-color);
+    transform: scale(1.2);
+}
+
+.glass-video-container {
+    flex: 0 0 calc(25% - 10px); /* No growing, no shrinking, flex-basis adjusted for margin */
+    max-width: calc(25% - 10px);
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.15);  
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.glass-video-container video {
+    border-radius: 10px;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.video-container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* This will distribute space evenly */
+    padding-top: 50px;
+    gap: 10px;
+}
+
+
+/* Media Queries */
+
+/* iPhone */
+@media (max-width: 480px) {
+    header {
+        padding: 5px; /* Reduced header padding for smaller screens */
+    }
+
+    .nav-link {
+        font-size: 14px;
+        margin: 0 -11px;
+        padding: 1px 0 0px; /* Reduced padding for less thickness */
+        width: 100px; /* Increased width for visibility */
+        height: 55px; /* Adjusted height */
+        background-size: 80%; /* Increased background size */
+        line-height: 60px; /* Adjust line height to vertically center text */
+    }
+
+    .home_body, .snare_body, .toms_body, .bass_body, .cymbals_body, .quints_body {
+        background-size: 20%; /* Increase the size of the background image */
+    }
+
+    .glass-video-container {
+        flex: 0 0 calc(50% - 20px); /* Adjusted for 2 items per row */
+        margin: 1px; /* Reduced margin */
+        max-width: calc(50% - 20px); /* Adjusted maximum width for two items per row */
+        padding: 5px; /* Smaller padding for the container */
+
+    }
+}
+
+/* iPad */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .nav-link {
+        font-size: 25px;
+        margin: 0 30px;
+        padding: 20px 0 4px; /* Slightly reduced padding for less thickness */
+        width: 120px; /* Increased width for better proportion */
+        height: 65px; /* Adjusted height */
+        background-size: 120%; /* Increased background size */
+        line-height: 60px; /* Adjust line height to vertically center text */
+        padding-top: -50px;
+    }
+
+    .video-container-wrapper {
+        padding-top: 20px;
+    }
+
+    .glass-video-container {
+        flex: 1 0 calc(25% - 10px);
+        max-width: calc(25% - 10px);
+        margin: 10px;
+    }
+}
