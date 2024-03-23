@@ -32,7 +32,7 @@ body {
 .toms_body { background-image: url("../images/TOMS.png"); }
 .bass_body { background-image: url("../images/BASS.png"); }
 .cymbals_body { background-image: url("../images/CYMBALS.png"); }
-.quints_body { background-image: url("../images/Quints.png"); }
+.quints_body { background-image: url("../images/QUINTS.png"); }
 
 header {
     background-color: var(--header-bg-color);
