@@ -4,7 +4,8 @@
     --nav-bg-color: #333;
     --logo-font-size: 40px;
     --nav-link-font-size: 26px;
-    --nav-link-bg-size: 9.1%;
+    --nav-link-bg-size-desktop: 9.09%; /* for desktop, 11 images per row */
+    --nav-link-bg-size-small: 20%; /* for smaller screens, 5 images per row */
     --nav-link-hover-color: rgb(40, 115, 255);
     --nav-link-width: 145px;
     --nav-link-height: 80px;
@@ -24,10 +25,14 @@ body {
 }
 
 .home_body, .snare_body, .toms_body, .bass_body, .cymbals_body, .quints_body {
-    background-size: var(--nav-link-bg-size);
+    background-image: url("../images/image.png");
+    background-size: var(--nav-link-bg-size-desktop);
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
-.home_body { background-image: url("../images/DOL.png"); }
+
+.home_body { background-image: url("../images/image.png"); }
 .snare_body { background-image: url("../images/SNARE.png"); }
 .toms_body { background-image: url("../images/TOMS.png"); }
 .bass_body { background-image: url("../images/BASS.png"); }
@@ -68,15 +73,12 @@ nav {
 }
 
 .nav-items {
-    /* Reverting to original styles */
     display: flex;
     justify-content: space-around;
     font-family: serif;
 }
 
-
 .nav-link {
-    /* Reverting to original styles */
     font-size: var(--nav-link-font-size);
     margin: 0 15px;
     text-decoration: none;
@@ -92,7 +94,6 @@ nav {
     transition: transform 0.4s, color 0.4s;
 }
 
-
 .nav-link:hover, .nav-link.active {
     background-color: transparent;
     color: var(--nav-link-hover-color);
@@ -100,15 +101,15 @@ nav {
 }
 
 .glass-video-container {
-    flex: 0 0 calc(25% - 10px); /* No growing, no shrinking, flex-basis adjusted for margin */
-    max-width: calc(25% - 10px);
-    margin: 5px;
-    background: rgba(255, 255, 255, 0.15);  
+    flex: 0 0 calc(23% - 10px); /* Reduced to fit 4 containers per row */
+    max-width: calc(23% - 10px); /* Max width matches flex-basis */
+    margin: 5px; /* Smaller margin */
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 10px;
+    padding: 5px; /* Reduced padding */
     border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     display: flex;
@@ -117,21 +118,29 @@ nav {
     height: auto;
 }
 
+.glass-video-container iframe {
+    border-radius: 20px; /* Match the container's border radius */
+    width: 100%; /* Ensure iframe fills the container width */
+    border: none; /* Optional: remove border for a cleaner look */
+    overflow: hidden; /* Hide overflow to maintain the rounded corners */
+}
+
 .glass-video-container video {
     border-radius: 10px;
     display: block;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%; /* Ensure video fills the container width */
+    height: auto; /* Adjust height automatically */
+    object-fit: cover; /* Cover to fill the container */
 }
 
 .video-container-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* This will distribute space evenly */
-    padding-top: 50px;
-    gap: 10px;
+    justify-content: space-around; /* Adjusted for better spacing */
+    padding-top: 20px; /* Reduced top padding */
+    gap: 20px; /* Reduced gap for tighter layout */
 }
+
 
 
 /* Media Queries */
@@ -157,9 +166,9 @@ nav {
     }
 
     .glass-video-container {
-        flex: 0 0 calc(50% - 20px); /* Adjusted for 2 items per row */
+        flex: 0 0 calc(45% - 20px); /* Adjusted for 2 items per row */
         margin: 1px; /* Reduced margin */
-        max-width: calc(50% - 20px); /* Adjusted maximum width for two items per row */
+        max-width: calc(45% - 20px); /* Adjusted maximum width for two items per row */
         padding: 5px; /* Smaller padding for the container */
 
     }
